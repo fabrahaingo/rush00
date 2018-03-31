@@ -27,6 +27,8 @@ else if (isset($_POST['submit']) && $_POST['submit'] === 'delete')
     file_put_contents('./db/books', serialize($books));
 }
 
+if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien" || $_COOKIE['logged_on_user'] === "scarlett")) {
+
 ?>
 
 <!DOCTYPE html>
@@ -70,3 +72,9 @@ else if (isset($_POST['submit']) && $_POST['submit'] === 'delete')
         <?php include ('footer.php'); ?>
 </body>
 <html>
+<?php
+}
+else {
+    echo "<script>alert(\"You must be a logged on admin in order to come here, goodbye 😈\");</script>";
+    header('Refresh: 0; URL="login.php"');
+}

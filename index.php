@@ -28,10 +28,5 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
     </header>
         <?php include ('main_page.php'); ?>
         <?php include ('footer.php'); ?>
-    <form action="index.php" method="POST">
-        <input type="submit" name="cart" value="Add to cart" /><br />
-        <input type="submit" name="empty_cart" value="Empty" />
-    </form>
-
 </body>
 <html>

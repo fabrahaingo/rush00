@@ -1,0 +1,9 @@
+.article {
+    text-align: center;
+    font-family: Arial;
+}
+
+.article > img {
+    width: 100px;
+    height: 100px;
+}
