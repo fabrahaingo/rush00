@@ -30,15 +30,5 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
     </header>
         <?php include ('main_page.php'); ?>
         <?php include ('footer.php'); ?>
-    <form action="index.php" method="POST">
-      <input type="hidden" name="title_to_add" value="fanfan la tulipe" /><br />
-      <div class='price'>quantity<br>
-      <input type='number'min="1" name='quantity' value='1' placeholder="" required/></div>
-      <input type="submit" name="cart" value="Add to cart" /><br />
-    </form>
-    <form action="index.php" method="POST">
-        <input type="submit" name="empty_cart" value="Empty" />
-    </form>
-
 </body>
 <html>
