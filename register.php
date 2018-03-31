@@ -1,13 +1,30 @@
-<?php include ('session_start.php'); ?>
 <?php
 
-/* ===== Change that with the real authentification function === */
-if (isset($_POST['login']) && isset($_POST['passwd']) && isset($_POST['submit']) && $_POST['submit'] === 'Register') {
-    setcookie("logged_on_user", $_POST['login'], time()+3600);
-    header('Location: index.php');
-}
-else {
-    header('Location: ' . $_SERVER['PHP_SELF']);
+if (isset($_POST['login']) && isset($_POST['passwd']) && isset($_POST['submit']) && $_POST['submit'] === "Register") {
+    if (!file_exists('./private/passwd')) {
+        mkdir('./private');
+        file_put_contents('./private/passwd', NULL);
+    }
+    $accounts = unserialize(file_get_contents('./private/passwd'));
+    $there = 0;
+    if ($accounts) {
+        foreach ($accounts as $user_id => $user_infos) {
+            if ($user_infos['login'] === trim($_POST['login'])) {
+                echo "<script>alert(\"This login is already taken 😞 Please choose another one\");</script>";
+                header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
+                $there = 1;
+            }
+        }
+    }
+    if ($there == 0) {
+        $newuser['login'] = $_POST['login'];
+        $newuser['passwd'] = hash('sha3-512', $_POST['passwd']);
+        $accounts[] = $newuser;
+        file_put_contents('./private/passwd', serialize($accounts));
+        echo "<script>alert(\"Account successfuly created 😃\");</script>";
+        setcookie("logged_on_user", $_POST['login'], time() + 3600);
+        header('Refresh: 0; URL="index.php"');
+    }
 }
 
 ?>

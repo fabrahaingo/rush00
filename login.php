@@ -1,13 +1,21 @@
-<?php include ('session_start.php'); ?>
 <?php
 
-/* ===== Change to check if combinaison of PASSWD and USER returns TRUE or FALSE ===== */
-if (isset($_POST['login']) && isset($_POST['passwd'])) {
-    setcookie("logged_on_user", $_POST['login'], time()+3600);
-    header('Location: index.php');
+include ('./functions/auth.php');
+isset($_POST['login']) ? $login = $_POST['login'] : $login = "";
+isset($_POST['passwd']) ? $passwd = $_POST['passwd'] : $passwd = "";
+if (auth($login, $passwd)) {
+    setcookie("logged_on_user", $_POST['login'], time() + 3600);
+    echo "<script>alert(\"Hourray ! You successfuly logged in ! 🎉\");</script>";
+    header('Refresh: 0; URL="index.php"');
+}
+else if (isset($_POST['login'])) {
+    setcookie("logged_on_user", null, time() - 3600);
+    echo "<script>alert(\"Woops, the loggin/password you typed in is wrong... 😵\");</script>";
+    header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
