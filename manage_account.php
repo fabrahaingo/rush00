@@ -1,18 +1,6 @@
-<?php include ('session_start.php'); ?>
+<?php include ('change_password.php'); ?>
+<?php include ('delete_account.php'); ?>
 <?php
-
-/* ===== Change reaction for when the user modifies his password (if combination TRUE or FALSE) ===== */
-if (isset($_POST['login']) && isset($_POST['oldpw']) && isset($_POST['submit']) && $_POST['submit'] === "Modify") {
-    echo "<script>alert(\"Your password has been modified\")</script>";
-    header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
-}
-
-/* ===== Change reaction for when the user deletes his account (if function check password returns TRUE) ===== */
-if (isset($_POST['delete_account']) && isset($_POST['submit']) && $_POST['submit'] === "Goodbye") {
-    setcookie("logged_on_user", "", time()-3600);
-    echo "<script>alert(\"Your account has been deleted\")</script>";
-    header('Refresh: 0; URL="index.php"');
-}
 
 /* ===== HTML only shows up if user is logged in ===== */
 if (isset($_COOKIE['logged_on_user'])) {
@@ -28,7 +16,7 @@ if (isset($_COOKIE['logged_on_user'])) {
         <?php include ('menu.php'); ?>
         <?php include ('login_menu.php'); ?>
     </header>
-    <form class="modify_form" action='manage_account.php' method='POST'>
+    <form class="modify_form" action='change_password.php' method='POST'>
         <div class='login'><br />
             <i>Want to modify your password ? Fill out this form</i> 👇<br />
             <br />
