@@ -9,7 +9,9 @@ function auth($login, $passwd) {
                 if ($user_infos['passwd'] == $hashed)
                     return (TRUE);
                 else
+                {
                     return (FALSE);
+                  }
             }
         }
         return (FALSE);
