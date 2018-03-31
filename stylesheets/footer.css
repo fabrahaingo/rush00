@@ -1,0 +1,15 @@
+footer {
+    background-color: #cccccc;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+}
+
+.foot_message {
+    left: 40%;
+    font-family: arial;
+    position: absolute;
+    bottom: -3px;
+    color: #513233;
+}
