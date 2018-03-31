@@ -8,7 +8,8 @@ if (isset($_POST['cart']) && $_POST['cart'] === 'Add to cart') {
     $books = unserialize(file_get_contents('./db/books'));
     //$books[$_POST['title']]['price'];
 
-    $_SESSION['product_price'] = $books[$_POST['title_to_add']]['price']; /* Need a function there that could get the price of the item, depending on the name POSTed */
+    $_SESSION['product_price'] = ($books[$_POST['title_to_add']]['price'] * $_POST['quantity']);
+    $_POST['quantity'] = 1; /* Need a function there that could get the price of the item, depending on the name POSTed */
     header('Location: ' . $_SERVER['PHP_SELF']);
 }
 
@@ -33,7 +34,9 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
         <?php include ('main_page.php'); ?>
         <?php include ('footer.php'); ?>
     <form action="index.php" method="POST">
-      <input type="hidden" name="title_to_add" value="fanfan la tulipe" /><br />
+        <input type="hidden" name="title_to_add" value="fanfan la tulipe" /><br />
+        <div class='price'>quantity<br>
+        <input type='number'min="1" name='quantity' value='1' placeholder="" required/></div> // limitation
         <input type="submit" name="cart" value="Add to cart" /><br />
     </form>
     <form action="index.php" method="POST">

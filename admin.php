@@ -46,15 +46,17 @@ else if (isset($_POST['submit']) && $_POST['submit'] === 'delete')
                 <input type='text' name='title' value='' maxlength="50" placeholder="Max. 50 characters" autofocus required/></div>
           <div class='price'>price:<br>
                 <input type='number' name='price' value='' placeholder="" required/></div>
+
+
           <br><div class='price'>categorie<br><br>
           <div class='price'>comics<br>
-              <input type='number' name='comics' value='' placeholder="" required/></div>
+              <input type='number' min="0" max="1" name='comics' value='0' placeholder="" required/></div>
           <div class='price'>thirller<br>
-                  <input type='number' name='thriller' value='' placeholder="" required/></div>
+                  <input type='number' min="0" max="1" name='thriller' value='0' placeholder="" required/></div>
           <div class='price'>sf<br>
-                  <input type='number' name='sf' value='' placeholder="" required/></div>
+                  <input type='number' min="0" max="1"  name='sf' value='0' placeholder="" required/></div>
           <div class='price'>novels<br>
-                          <input type='number' name='novels' value='' placeholder="" required/></div>
+                          <input type='number' min="0" max="1" name='novels' value='0' placeholder="" required/></div>
           <div class='push'><input class='button' type='submit' name='submit' value='Register' /></div>
         </form>
 
