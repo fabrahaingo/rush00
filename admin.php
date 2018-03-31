@@ -25,10 +25,7 @@ else if (isset($_POST['submit']) && $_POST['submit'] === 'delete')
     }
     unset($books[$_POST['title']]);
     file_put_contents('./db/books', serialize($books));
-    // print_r($books);
 }
-else
-    echo "ERROR\n";
 
 ?>
 
