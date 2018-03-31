@@ -19,11 +19,13 @@ if (isset($_POST['login']) && isset($_POST['passwd']) && isset($_POST['submit'])
     if ($there == 0) {
         $newuser['login'] = $_POST['login'];
         $newuser['passwd'] = hash('sha3-512', $_POST['passwd']);
+        print(hash('sha3-512', $_POST['passwd']));
+        print_r($_POST);
         $accounts[] = $newuser;
         file_put_contents('./private/passwd', serialize($accounts));
         echo "<script>alert(\"Account successfuly created 😃\");</script>";
         setcookie("logged_on_user", $_POST['login'], time() + 3600);
-        header('Refresh: 0; URL="index.php"');
+        // header('Refresh: 0; URL="index.php"');
     }
 }
 
