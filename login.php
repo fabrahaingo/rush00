@@ -1,3 +1,4 @@
+<?php include ('session_start.php'); ?>
 <?php
 
 include ('./functions/auth.php');

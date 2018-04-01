@@ -2,10 +2,7 @@
 
 /* ===== Calculates total amount of items in cart ===== */
 function price_cart($new_product_price) {
-    if (isset($_SESSION['cart_amount']))
-        $_SESSION['cart_amount'] += $new_product_price;
-    else
-        $_SESSION['cart_amount'] = $new_product_price;
+    $_SESSION['cart_amount'] += $new_product_price;
     $formatted = sprintf("%1.2f", $_SESSION['cart_amount']) . "€";
     $_SESSION['product_price'] = 0;
     return ($formatted);
@@ -25,9 +22,9 @@ function price_cart($new_product_price) {
             <li><a href="#">Science fiction</a></li>
             <li><a href="#">Comics</a></li>
         </ul>
-        <li><a href="#">Cart &nbsp;&nbsp;
+        <li><a href="cart.php">Cart &nbsp;&nbsp;
         <?php
-            echo isset($_SESSION['cart_amount']) ? "(" . price_cart($_SESSION['product_price']) . ")" : "(<i>empty</i>)";
+            echo (isset($_SESSION['cart_amount'])) ? "(" . price_cart($_SESSION['product_price']) . ")" : "(<i>empty</i>)";
         ?>
     </a></li>
     </li>

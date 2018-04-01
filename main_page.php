@@ -33,10 +33,10 @@ if (file_exists('./db/books') && $all_books) {
 ?>
     <img src="./img/book.png" />
     <form action="index.php" method="POST">
-        <input type="hidden" name="price" value="<?php echo $info['price'] . "€" ?>" /></br>
-        <input type="number" name="quantity" value="" /><br />
+        <input type="number" name="quantity" min="1" max="100" value="1" /><br />
         <input type="submit" name="cart" value="Add to cart" /><br />
-        <input type="submit" name="empty_cart" value="Empty" />
+        <input type="hidden" name="title_to_add" value="<?php echo $info['title']; ?>" /></br>
+        <input type="hidden" name="price" value="<?php echo $info['price']; ?>" /></br>
     </form>
     </div>
 <?php

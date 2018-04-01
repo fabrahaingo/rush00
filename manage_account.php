@@ -1,3 +1,4 @@
+<?php include ('session_start.php'); ?>
 <?php include ('change_password.php'); ?>
 <?php include ('delete_account.php'); ?>
 <?php
