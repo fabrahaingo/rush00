@@ -84,13 +84,22 @@ if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien
         </form>
   <br><br>
 
-  <form class="register_form" action='admin.php' method='POST'>
+    <form class="register_form" action='admin.php' method='POST'>
       <div class='title'>Account Delete<br><br>
       <div class='price'>Login<br>
                       <input type='text' name='login' value='' placeholder="Max. 12 characters" required/></div>
       <div class='push'><input class='button' type='submit' name='login_delete' value='delete' /></div>
     </form>
-        <?php include ('footer.php'); ?>
+  <br><br>
+
+    <form class="register_form" action='admin.php' method='POST'>
+        <div class='title'>Customer'<br><br>
+        <div class='price'>Login<br>
+                        <input type='text' name='login' value='' placeholder="Max. 12 characters" required/></div>
+        <div class='push'><input class='button' type='submit' name='login_delete' value='delete' /></div>
+    </form>
+
+<?php include ('footer.php'); ?>
 </body>
 <html>
 <?php

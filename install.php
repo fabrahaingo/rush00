@@ -20,7 +20,7 @@ function init_db()
     }
     if (!(file_exists("./db/archives")))
     {
-        file_put_contents("./db/archives", '');
+        file_put_contents("./db/archives", 'empty');
     }
     setcookie("is_installed", 1, (time() + 3600));
     header('Location:index.php');
