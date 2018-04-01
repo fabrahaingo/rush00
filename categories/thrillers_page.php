@@ -14,8 +14,8 @@ if (file_exists('./db/books') && $all_books) {
         echo "<font size=\"3\"> - <i>" . $info['price'] . "</i> €</font><br>";
 ?>
     <img src="./img/book.png" />
-    <form action="./thrillers.php" method="POST">
-        <input type="number" name="quantity" min="1" max="100" value="1" /><br />
+    <form action="./index.php" method="POST">
+        <input type="number" name="quantity" min="1" max="100" value="1" />
         <input type="submit" name="cart" value="Add to cart" />
         <input type="hidden" name="title_to_add" value="<?php echo $info['title']; ?>" />
         <input type="hidden" name="price" value="<?php echo $info['price']; ?>" />

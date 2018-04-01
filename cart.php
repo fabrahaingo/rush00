@@ -8,7 +8,7 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
 }
 
 /* ===== Place order ===== */
-if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order" && isset($_COOKIE['logged_on_user'])) {
+else if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order" && isset($_COOKIE['logged_on_user'])) {
     echo "<script>alert(\"Your order has been placed successfuly ! Thanks for your trust 😃 !\"); </script>";
 /* ===== Still need a function to archive the order before session_destroy (to see it in admin page) ===== */
     session_destroy();

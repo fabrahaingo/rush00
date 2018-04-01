@@ -1,10 +1,6 @@
 <?php
 include ('session_start.php');
 
-
-
-// $logins = unserialize(file_get_contents('./private/passwd'));
-// print_r($logins);
 /* ===== Change that with the real authentification function === */
 if (isset($_POST['title']) && isset($_POST['price']) && isset($_POST['submit']) && $_POST['submit'] === 'Register')
 {
@@ -29,6 +25,7 @@ else if (isset($_POST['submit']) && $_POST['submit'] === 'delete')
     $books = unserialize(file_get_contents('./db/books'));
     }
     unset($books[$_POST['title']]);
+
     file_put_contents('./db/books', serialize($books));
 }
 else if (isset($_POST['login_delete']) && $_POST['login_delete'] === 'delete')

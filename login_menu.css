@@ -1,0 +1,61 @@
+/* ===== WHEN NOT LOGGED IN ===== */
+
+.top_login {
+    font-family: arial;
+    display: block;
+    padding: 16px 40px;
+    text-decoration: none;
+    color: #513233;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.top_login:hover {
+    color: #e6e6e6;
+    background-color: grey;
+    transition: all linear 0.25s;
+}
+
+/* ===== WHEN LOGGED IN ===== */
+/* ===== MODIFY ACCOUNT ===== */
+.special1 {
+    font-family: arial;
+    display: block;
+    padding: 16px 40px;
+    text-decoration: none;
+    color: #513233;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 129px;
+    margin: auto;
+    white-space: nowrap;
+}
+
+.special1:hover {
+    color: #e6e6e6;
+    background-color: grey;
+    transition: all linear 0.25s;
+}
+
+/* ===== LOGOUT ===== */
+
+.special2:hover {
+    color: #e6e6e6;
+    background-color: grey;
+    transition: all linear 0.25s;
+}
+
+.special2 {
+    font-family: arial;
+    display: block;
+    padding: 16px 40px;
+    text-decoration: none;
+    color: #513233;
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

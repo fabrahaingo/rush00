@@ -1,0 +1,43 @@
+/* ===== GENERAL ===== */
+
+::placeholder {
+    color: lightgrey;
+}
+
+/* ===== MODIFY PART ===== */
+
+.modify_form {
+    background: lightgrey;
+}
+
+.modify_form > div {
+    text-align: center;
+    font-family: arial;
+}
+
+.login {
+    margin-top: 5%;
+    margin-bottom: 20px;
+}
+
+.old_password {
+    margin-top: 30px;
+}
+
+.new_password {
+    margin-top: 30px;
+}
+
+.push {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* ===== DELETE PART ===== */
+
+.delete_form {
+    font-family: arial;
+    background: lightgrey;
+    text-align: center;
+    margin-top: 5%;
+}

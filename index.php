@@ -1,6 +1,5 @@
 <?php include ('session_start.php'); ?>
 <?php
-
 /* ===== Each book category has its one and only price ===== */
 if (isset($_POST['cart']) && $_POST['cart'] === "Add to cart") {
     if (!isset($_SESSION['cart_amount']))
@@ -8,7 +7,7 @@ if (isset($_POST['cart']) && $_POST['cart'] === "Add to cart") {
     $_SESSION['product_price'] = ($_POST['price'] * $_POST['quantity']);
 /* ===== PRICE OF CART ARTICLE ===== */
     if (!isset($_SESSION[$_POST['title_to_add']]))
-        $_SESSION[$_POST['title_to_add']]['price'] = $_POST['price'];
+  $_SESSION[$_POST['title_to_add']]['price'] = $_POST['price'];
 /* ===== QUANTITY OF CART ARTICLE ===== */
 /* ===== If the item is already in the cart, increase its quantity ===== */
     if (!isset($_SESSION[$_POST['title_to_add']]['quantity']))
@@ -16,9 +15,7 @@ if (isset($_POST['cart']) && $_POST['cart'] === "Add to cart") {
     else
         $_SESSION[$_POST['title_to_add']]['quantity'] += $_POST['quantity'];
     header('Location: ' . $_SERVER['PHP_SELF']);
-    print_r($_SESSION);
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +43,5 @@ if (isset($_POST['cart']) && $_POST['cart'] === "Add to cart") {
             include ('./categories/comics_page.php');
         ?>
         <?php include ('footer.php'); ?>
-
 </body>
 <html>
