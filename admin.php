@@ -35,8 +35,16 @@ else if (isset($_POST['login_delete']) && $_POST['login_delete'] === 'delete')
       if ($_POST['login'] === $value['login'])
       {
           unset($logins[$key]['login']);
+
       }
     }
+}
+elseif (isset($_POST['cart_sent']) && $_POST['cart_sent'] === 'sent')
+{
+  echo "OKKKKKKK";
+  $orders = unserialize(file_get_contents('./db/archives'));
+  unset($orders[$_POST['login_sent']]);
+  file_put_contents("./db/archives",serialize($orders));
 }
 
 if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien" || $_COOKIE['logged_on_user'] === "scarlett")) {
@@ -93,53 +101,39 @@ if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien
   <br><br>
 
     <form class="register_form" action='admin.php' method='POST'>
-        <div class='title'>Customers'orders<br><br>
+        <div action="./admin.php" class='title'>Customers'orders<br><br>
       <?php
       $users = unserialize(file_get_contents('./private/passwd'));
       $orders = unserialize(file_get_contents('./db/archives'));
       $books = unserialize(file_get_contents('./db/books'));
-      // print_r($users);
+      $idonline = 2;
       foreach ($users as $user)
       {
           if(isset($orders[$user['login']]))
           {
-              ?> <div class=""> <?php echo $user['login']; ?> </div> <?php
+              $idonline = 3;
+              ?> <div class=""> <?php echo $user['login']; ?> </div><br> <?php
               foreach ($books as $key_title => $val)
               {
-                // print($val['title']);
-
-                if(isset($orders[$users['login']][$val['title']]))
-                {print_r($orders);
-                  ?> <div class=""> <?php echo $key_title; ?> </div> <?php
+                if(isset($orders[$user['login']][$val['title']]))
+                {
+                  ?> <div class=""> <?php echo $key_title."   ".$orders[$user['login']][$val['title']];?> </div> <?php
                 }
               }
+                  ?>
+                  <form action="./admin.php" method="POST">
+                    <input type="hidden" name="login_sent" value="<?php echo $user['login']; ?>" />
+                  <div class='push'><input class='button' type='submit' name='cart_sent' value='sent' /></div>
+                 </form>
+                 <br><br>
+                 <?php
           }
       }
+      if ($idonline === 2)
+      ?> <div class=""> You are up to date </div><br> <?php
 
        ?>
-
-
-
-
-       <!-- <img src="http://manabu-biology.com/wp-content/uploads/2017/01/512x512.png" /> -->
-       <form action="./index.php" method="POST">
-         <div class='push'><input class='button' type='submit' name='article_delete' value='sent' /></div>
-
-       </form>
        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php include ('footer.php'); ?>
 </body>
 <html>
