@@ -65,7 +65,7 @@ if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien
           <br><div class='price'>categorie<br><br>
           <div class='price'>comics<br>
               <input type='number' min="0" max="1" name='comics' value='0' placeholder="" required/></div>
-          <div class='price'>thriller<br>
+          <div class='price'>thirller<br>
                   <input type='number' min="0" max="1" name='thriller' value='0' placeholder="" required/></div>
           <div class='price'>sf<br>
                   <input type='number' min="0" max="1"  name='sf' value='0' placeholder="" required/></div>
@@ -93,11 +93,22 @@ if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien
   <br><br>
 
     <form class="register_form" action='admin.php' method='POST'>
-        <div class='title'>Customer'<br><br>
-        <div class='price'>Login<br>
-                        <input type='text' name='login' value='' placeholder="Max. 12 characters" required/></div>
-        <div class='push'><input class='button' type='submit' name='login_delete' value='delete' /></div>
-    </form>
+        <div class='title'>Customerd'Orders<br><br>
+      <?php
+      $users = unserialize(file_get_contents('./private/passwd'));
+      $orders = unserialize(file_get_contents('./db/archives'));
+      print_r($users[0]['login']);
+      // foreach ($users as $key_user => $value) {
+        // if(isset($orders[$key_user['login']]))
+        // {
+        //
+        //
+        // }
+      // }
+
+
+
+       ?>
 
 <?php include ('footer.php'); ?>
 </body>

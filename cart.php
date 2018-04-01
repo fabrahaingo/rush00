@@ -10,19 +10,18 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
 else if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order" && isset($_COOKIE['logged_on_user'])) {
     echo "<script>alert(\"Your order has been placed successfuly ! Thanks for your trust 😃 !\"); </script>";
     $orders = unserialize(file_get_contents('./db/archives'));
-// echo "$orders";
-    if ($orders == 'empty')
-    {
-        $orders[$_COOKIE['logged_on_user']] = $_SESSION;
-    } else {
-      echo "helloeeee ELSE";
-      $orders[$_COOKIE['logged_on_user']] = $_SESSION;
+    $books = unserialize(file_get_contents('./db/books'));
+    foreach ($books as $key_title => $value) {
+      if ((isset($_SESSION[$key_title])))
+      {
+          if (!(isset($orders[$_COOKIE['logged_on_user']][$key_title]['quantity'])))
+                $orders[$_COOKIE['logged_on_user']][$key_title]['quantity'] = 0;
+          $orders[$_COOKIE['logged_on_user']][$key_title]['quantity'] += $_SESSION[$key_title]['quantity'];
+      }
     }
-    print_r($orders);
-    print_r($_SESSION);
     file_put_contents('./db/archives', serialize($orders));
     session_destroy();
-    // header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
+    header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
 }
 else if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order") {
     echo "<script>alert(\"You must be logged in to place your order, please come back when you are 😉\"); </script>";
