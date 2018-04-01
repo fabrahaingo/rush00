@@ -20,7 +20,6 @@ if (isset($_POST['login']) && isset($_POST['passwd']) && isset($_POST['submit'])
         $newuser['login'] = $_POST['login'];
         $newuser['passwd'] = hash('sha3-512', $_POST['passwd']);
         print(hash('sha3-512', $_POST['passwd']));
-        print_r($_POST);
         $accounts[] = $newuser;
         file_put_contents('./private/passwd', serialize($accounts));
         echo "<script>alert(\"Account successfuly created 😃\");</script>";

@@ -6,7 +6,7 @@ if (file_exists('./db/books')) {
 if (file_exists('./db/books') && $all_books) {
     foreach ($all_books as $book_name => $info) {
 ?>
-    <link rel="stylesheet" type="text/css" href="stylesheets/articles.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/articles.css">
     <div class='article'>
 <?php
     $got_category = 0;
@@ -32,11 +32,11 @@ if (file_exists('./db/books') && $all_books) {
         echo "<br>";
 ?>
     <img src="./img/book.png" />
-    <form action="index.php" method="POST">
+    <form action="./index.php" method="POST">
         <input type="number" name="quantity" min="1" max="100" value="1" /><br />
-        <input type="submit" name="cart" value="Add to cart" /><br />
-        <input type="hidden" name="title_to_add" value="<?php echo $info['title']; ?>" /></br>
-        <input type="hidden" name="price" value="<?php echo $info['price']; ?>" /></br>
+        <input type="submit" name="cart" value="Add to cart" />
+        <input type="hidden" name="title_to_add" value="<?php echo $info['title']; ?>" />
+        <input type="hidden" name="price" value="<?php echo $info['price']; ?>" />
     </form>
     </div>
 <?php

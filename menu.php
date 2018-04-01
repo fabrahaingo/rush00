@@ -16,11 +16,11 @@ function price_cart($new_product_price) {
         <li><a href="index.php">Home</a></li>
         <li class="godown"><a href="#">Categories <span class="arrow">&#9660;</span></a>
         <ul class="dropdown">
-            <li><a href="index.php">All categories</a></li>
-            <li><a href="#">Thrillers</a></li>
-            <li><a href="#">Novels</a></li>
-            <li><a href="#">Science fiction</a></li>
-            <li><a href="#">Comics</a></li>
+            <li><a href="index.php?category=All">All categories</a></li>
+            <li><a href="index.php?category=Thrillers">Thrillers</a></li>
+            <li><a href="index.php?category=Novels">Novels</a></li>
+            <li><a href="index.php?category=Sf">Science fiction</a></li>
+            <li><a href="index.php?category=Comics">Comics</a></li>
         </ul>
         <li><a href="cart.php">Cart &nbsp;&nbsp;
         <?php

@@ -7,6 +7,18 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
     header('Location: ' . $_SERVER['PHP_SELF']);
 }
 
+/* ===== Place order ===== */
+if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order" && isset($_COOKIE['logged_on_user'])) {
+    echo "<script>alert(\"Your order has been placed successfuly ! Thanks for your trust 😃 !\"); </script>";
+/* ===== Still need a function to archive the order before session_destroy (to see it in admin page) ===== */
+    session_destroy();
+    header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
+}
+else if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order") {
+    echo "<script>alert(\"You must be logged in to place your order, please come back when you are 😉\"); </script>";
+    header('Refresh: 0; URL=' . $_SERVER['PHP_SELF']);
+}
+
 ?>
 
 <!DOCTYPE html>

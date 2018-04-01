@@ -4,6 +4,8 @@
 include ('./functions/auth.php');
 isset($_POST['login']) ? $login = $_POST['login'] : $login = "";
 isset($_POST['passwd']) ? $passwd = $_POST['passwd'] : $passwd = "";
+/* ===== If authentification succeeded, then set cookie, display message and redirect. IF NOT, make sure
+    the coockie is not set, and display error message ===== */
 if (auth($login, $passwd)) {
     setcookie("logged_on_user", $_POST['login'], time() + 3600);
     echo "<script>alert(\"Hourray ! You successfuly logged in ! 🎉\");</script>";
