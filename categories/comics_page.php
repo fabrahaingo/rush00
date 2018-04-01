@@ -13,7 +13,7 @@ if (file_exists('./db/books') && $all_books) {
         echo "<br><b><font size=\"4\">" . ucfirst($info['title']) . "</font></b>";
         echo "<font size=\"3\"> - <i>" . $info['price'] . "</i> €</font><br>";
 ?>
-    <img src="./img/book.png" />
+    <img src="http://manabu-biology.com/wp-content/uploads/2017/01/512x512.png" />
     <form action="./index.php" method="POST">
         <input type="number" name="quantity" min="1" max="100" value="1" />
         <input type="submit" name="cart" value="Add to cart" />
