@@ -4,13 +4,16 @@ if (file_exists('./db/books')) {
     $all_books = unserialize(file_get_contents('./db/books'));
 }
 if (file_exists('./db/books') && $all_books) {
+?>
+    <div class="items">
+<?php
     foreach ($all_books as $book_name => $info) {
 ?>
     <link rel="stylesheet" type="text/css" href="./stylesheets/articles.css">
     <div class='article'>
 <?php
     $got_category = 0;
-    echo "<br><b><font size=\"4\">" . ucfirst($info['title']) . "</font></b>";
+    echo "<b><font size=\"4\">" . ucfirst($info['title']) . "</font></b>";
     echo "<font size=\"3\"> - <i>" . $info['price'] . "</i> €</font><br>";
     if ($info['thriller'] == 1) {
         echo "Thriller<br>";
@@ -41,6 +44,9 @@ if (file_exists('./db/books') && $all_books) {
     </div>
 <?php
     }
+?>
+</div>
+<?php
 }
 
 ?>

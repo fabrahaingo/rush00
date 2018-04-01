@@ -9,7 +9,7 @@ isset($_POST['passwd']) ? $passwd = $_POST['passwd'] : $passwd = "";
 if (auth($login, $passwd)) {
     setcookie("logged_on_user", $_POST['login'], time() + 3600);
     echo "<script>alert(\"Hourray ! You successfuly logged in ! 🎉\");</script>";
-    header('Refresh: 0; URL="index.php"');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 else if (isset($_POST['login'])) {
     setcookie("logged_on_user", null, time() - 3600);

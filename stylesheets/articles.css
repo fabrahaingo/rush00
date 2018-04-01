@@ -1,9 +1,27 @@
 .article {
     text-align: center;
     font-family: Arial;
+    margin: 20px 50px;
+    display: inline-block;
+    width: 200px;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .article > img {
     width: 100px;
     height: 100px;
+}
+
+.items {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+    margin-top: 20px;
+    box-shadow: 0px 1px 27px -3px #888888;
+    border-radius: 10px;
+    background-image: url("https://www.welovesolo.com/wp-content/uploads/2014/10/0cd91cc08db2c547a25256c268edfc3b-details.jpg");
+    background-repeat: repeat;
 }
