@@ -65,7 +65,7 @@ if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien
           <br><div class='price'>categorie<br><br>
           <div class='price'>comics<br>
               <input type='number' min="0" max="1" name='comics' value='0' placeholder="" required/></div>
-          <div class='price'>thirller<br>
+          <div class='price'>thriller<br>
                   <input type='number' min="0" max="1" name='thriller' value='0' placeholder="" required/></div>
           <div class='price'>sf<br>
                   <input type='number' min="0" max="1"  name='sf' value='0' placeholder="" required/></div>
