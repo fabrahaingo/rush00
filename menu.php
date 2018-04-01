@@ -3,7 +3,10 @@
 /* ===== Calculates total amount of items in cart ===== */
 function price_cart($new_product_price) {
     $_SESSION['cart_amount'] += $new_product_price;
-    $formatted = sprintf("%1.2f", $_SESSION['cart_amount']) . "€";
+    if ($_SESSION['cart_amount'] !== 0)
+        $formatted = sprintf("%1.2f", $_SESSION['cart_amount']) . "€";
+    else
+        $formatted = "<i>empty</i>";
     $_SESSION['product_price'] = 0;
     return ($formatted);
 }

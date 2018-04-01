@@ -1,1 +1,62 @@
+.cart_item {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: 200px;
+    font-family: Arial;
+    padding: 20px;
+    background: rgba(200, 200, 200, 0.5);
+    box-shadow: 0px 1px 27px -3px #888888;
+    margin: 50px 50px;
+    border-radius: 10px;
+    transition: box-shadow 2s;
+    transition: background 0.5s;
+}
 
+.cart_item:hover {
+    background: rgba(200, 200, 200, 1);
+    box-shadow: 0px 1px 22px 3px #888888;
+}
+
+.whole_cart {
+    background: lightgrey;
+    width: 60%;
+    float: right;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 5%;
+    background-image: url("https://www.welovesolo.com/wp-content/uploads/2014/10/0cd91cc08db2c547a25256c268edfc3b-details.jpg");
+    background-repeat: repeat;
+    margin-top: 5%;
+    border-radius: 10px;
+    box-shadow: 0px 1px 27px -3px #888888;
+}
+
+.total {
+    display: block;
+    float: left;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    background: rgba(200, 200, 200, 1);
+    width: 10%;
+    margin-left: 5%;
+    margin-top: 5%;
+    padding: 20px 50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 1px 27px -3px #888888;
+    background-image: url("https://www.welovesolo.com/wp-content/uploads/2014/10/0cd91cc08db2c547a25256c268edfc3b-details.jpg");
+}
+
+.place_order {
+    border: none;
+    height: 30px;
+    width: 100px;
+}
+
+.empty {
+    border: none;
+    height: 25px;
+    width: 100px;
+}
