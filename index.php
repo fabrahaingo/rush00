@@ -11,7 +11,7 @@ if (isset($_POST['cart']) && $_POST['cart'] === "Add to cart") {
         $_SESSION[$_POST['title_to_add']]['price'] = $_POST[$_SESSION['product_price']];
 /* ===== QUANTITY OF CART ARTICLE ===== */
 /* ===== If the item is already in the cart, increase its quantity ===== */
-    if (isset($_SESSION[$_POST['title_to_add']]['quantity']))
+    if (!isset($_SESSION[$_POST['title_to_add']]['quantity']))
         $_SESSION[$_POST['title_to_add']]['quantity'] = $_POST['quantity'];
     else
         $_SESSION[$_POST['title_to_add']]['quantity'] += $_POST['quantity'];
