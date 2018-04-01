@@ -3,7 +3,7 @@
 if (file_exists('./db/books')) {
     $all_books = unserialize(file_get_contents('./db/books'));
 }
-if (file_exists('./db/books') && $all_books) {
+if (file_exists('./db/books') && $all_books && isset($_SESSION['cart_amount']) && $_SESSION['cart_amount'] !== 0) {
     $got_item = 0;
     foreach ($all_books as $book_name => $info) {
 ?>
@@ -18,9 +18,11 @@ if (file_exists('./db/books') && $all_books) {
         echo "<font size=\"2\">Total for this item - <i>" . ($_SESSION[$book_name]['price'] * $_SESSION[$book_name]['quantity']) . "</i> €</font><br>";
 ?>
     <form action="cart.php" method="POST">
-        <input type="number" name="quantity" min="1" max="100" value="1" /><br />
-        <input type="submit" name="cart" value="Add to cart" /><br />
-        <input type="hidden" name="title_to_remove" value="<?php echo $info['title']; ?>" /></br>
+        <input type="number" name="quantity_add" min="1" max="100" value="1" />
+        <input type="submit" name="add" value="Add to cart" /><br />
+        <input type="number" name="quantity_del" min="1" max="<?php echo $_SESSION[$book_name]['quantity'] ?>" value="1" />
+        <input type="submit" name="del" value="Remove from cart" /><br />
+        <input type="hidden" name="title_item" value="<?php echo $info['title']; ?>" /></br>
         <input type="hidden" name="price" value="<?php echo $info['price']; ?>" /></br>
     </form>
     </div>
@@ -41,6 +43,9 @@ if (file_exists('./db/books') && $all_books) {
     }
     if ($got_item === 0)
         echo ("Your cart is currently empty");
+}
+else {
+    echo("Your cart is currently empty");
 }
 
 ?>
