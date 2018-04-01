@@ -93,22 +93,52 @@ if (isset($_COOKIE['logged_on_user']) && ($_COOKIE['logged_on_user'] === "fabien
   <br><br>
 
     <form class="register_form" action='admin.php' method='POST'>
-        <div class='title'>Customerd'Orders<br><br>
+        <div class='title'>Customers'orders<br><br>
       <?php
       $users = unserialize(file_get_contents('./private/passwd'));
       $orders = unserialize(file_get_contents('./db/archives'));
-      print_r($users[0]['login']);
-      // foreach ($users as $key_user => $value) {
-        // if(isset($orders[$key_user['login']]))
-        // {
-        //
-        //
-        // }
-      // }
+      $books = unserialize(file_get_contents('./db/books'));
+      // print_r($users);
+      foreach ($users as $user)
+      {
+          if(isset($orders[$user['login']]))
+          {
+              ?> <div class=""> <?php echo $user['login']; ?> </div> <?php
+              foreach ($books as $key_title => $val)
+              {
+                // print($val['title']);
 
-
+                if(isset($orders[$users['login']][$val['title']]))
+                {print_r($orders);
+                  ?> <div class=""> <?php echo $key_title; ?> </div> <?php
+                }
+              }
+          }
+      }
 
        ?>
+
+
+
+
+       <!-- <img src="http://manabu-biology.com/wp-content/uploads/2017/01/512x512.png" /> -->
+       <form action="./index.php" method="POST">
+         <div class='push'><input class='button' type='submit' name='article_delete' value='sent' /></div>
+
+       </form>
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php include ('footer.php'); ?>
 </body>

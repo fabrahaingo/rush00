@@ -7,7 +7,7 @@ if (isset($_POST['empty_cart']) && $_POST['empty_cart'] === "Empty") {
     header('Location: ' . $_SERVER['PHP_SELF']);
 }
 
-/* ===== Place order ===== */
+/* ===== Place order/ buy ===== */
 else if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your order" && isset($_COOKIE['logged_on_user'])) {
     echo "<script>alert(\"Your order has been placed successfuly ! Thanks for your trust 😃 !\"); </script>";
 /* ===== When order is places, serializes the informations in a seperate file so this admin can access them ===== */
@@ -17,8 +17,8 @@ else if (isset($_POST['place_order']) && $_POST['place_order'] === "Place your o
       if ((isset($_SESSION[$key_title])))
       {
           if (!(isset($orders[$_COOKIE['logged_on_user']][$key_title]['quantity'])))
-                $orders[$_COOKIE['logged_on_user']][$key_title]['quantity'] = 0;
-          $orders[$_COOKIE['logged_on_user']][$key_title]['quantity'] += $_SESSION[$key_title]['quantity'];
+                $orders[$_COOKIE['logged_on_user']][$key_title] = 0;
+          $orders[$_COOKIE['logged_on_user']][$key_title] += $_SESSION[$key_title]['quantity'];
       }
     }
     file_put_contents('./db/archives', serialize($orders));
