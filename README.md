@@ -1,10 +1,8 @@
 # ft_minishop
-project part of **php piscine at 42**
+Project part of **php piscine at 42**, the week-end goal was to create a shopping platform with:
 
-The week-end project goal was to create a shopping platform with:
-
-•  Database manager   
-•  Users managers   
+•  A database manager   
+•  An users managers   
 •  A basket  
 •  A products' categories   
 •  A main clear page     
