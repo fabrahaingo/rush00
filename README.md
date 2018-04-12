@@ -7,6 +7,6 @@ The week-end project goal was to create a shopping platform with:
 •  Users managers   
 •  A basket  
 •  A products' categories   
-•  A main clear page 
+•  A main clear page     
 •  An administration section  
 
