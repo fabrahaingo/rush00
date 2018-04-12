@@ -5,7 +5,7 @@ The week-end project goal was to create a shopping platform with:
 
 • **Database manager**   
 • **Users managers**
-• a basket
-• products'
-• a main attractive page summurasing articles
-• An administration section
+• a basket  
+• products'  
+• a main attractive page summurasing articles  
+• An administration section  
