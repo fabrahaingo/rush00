@@ -3,7 +3,7 @@ project part of **php piscine at 42**
 
 The week-end project goal was to create a shopping platform with:
 
-• **Database manager** 
+• **Database manager**   
 • **Users managers** : Vous devez pouvoir créer un compte utilisateur et le
 supprimer. La connexion à votre site est essentielle avant de pouvoir valider votre
 panier, en revanche il est possible de le remplir sans être identifié. Pour ce faire,
